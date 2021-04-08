@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.js.aisino.repository.mapper.Gb1201Mapper">
+  <resultMap id="BaseResultMap" type="com.js.aisino.repository.entity.Gb1201">
+    <id column="num" jdbcType="INTEGER" property="num" />
+    <result column="rkywdh" jdbcType="NVARCHAR" property="rkywdh" />
+    <result column="hwdm" jdbcType="NVARCHAR" property="hwdm" />
+    <result column="ywlx" jdbcType="NVARCHAR" property="ywlx" />
+    <result column="ywrq" jdbcType="NVARCHAR" property="ywrq" />
+    <result column="jhmxh" jdbcType="NVARCHAR" property="jhmxh" />
+    <result column="hth" jdbcType="NVARCHAR" property="hth" />
+    <result column="cyr" jdbcType="NVARCHAR" property="cyr" />
+    <result column="lxdh" jdbcType="NVARCHAR" property="lxdh" />
+    <result column="sfzh" jdbcType="NVARCHAR" property="sfzh" />
+    <result column="xxdz" jdbcType="NVARCHAR" property="xxdz" />
+    <result column="ysgj" jdbcType="NVARCHAR" property="ysgj" />
+    <result column="cch" jdbcType="NVARCHAR" property="cch" />
+    <result column="djsj" jdbcType="NVARCHAR" property="djsj" />
+    <result column="djmgryxm" jdbcType="NVARCHAR" property="djmgryxm" />
+    <result column="lspzdm" jdbcType="NVARCHAR" property="lspzdm" />
+    <result column="lsxzdm" jdbcType="NVARCHAR" property="lsxzdm" />
+    <result column="shnd" jdbcType="NVARCHAR" property="shnd" />
+    <result column="cddm" jdbcType="NVARCHAR" property="cddm" />
+    <result column="jjlx" jdbcType="NVARCHAR" property="jjlx" />
+    <result column="mz" jdbcType="DECIMAL" property="mz" />
+    <result column="mzjby" jdbcType="NVARCHAR" property="mzjby" />
+    <result column="mzjlsj" jdbcType="NVARCHAR" property="mzjlsj" />
+    <result column="mzjly" jdbcType="NVARCHAR" property="mzjly" />
+    <result column="zcy" jdbcType="NVARCHAR" property="zcy" />
+    <result column="pz" jdbcType="DECIMAL" property="pz" />
+    <result column="pzjby" jdbcType="NVARCHAR" property="pzjby" />
+    <result column="pzjlsj" jdbcType="NVARCHAR" property="pzjlsj" />
+    <result column="pzjly" jdbcType="NVARCHAR" property="pzjly" />
+    <result column="bzw" jdbcType="NVARCHAR" property="bzw" />
+    <result column="bzbdbz" jdbcType="DECIMAL" property="bzbdbz" />
+    <result column="bzbjs" jdbcType="INTEGER" property="bzbjs" />
+    <result column="zjkl" jdbcType="DECIMAL" property="zjkl" />
+    <result column="bzwkl" jdbcType="DECIMAL" property="bzwkl" />
+    <result column="qtkl" jdbcType="DECIMAL" property="qtkl" />
+    <result column="klyy" jdbcType="NVARCHAR" property="klyy" />
+    <result column="ksz" jdbcType="DECIMAL" property="ksz" />
+    <result column="kzs" jdbcType="DECIMAL" property="kzs" />
+    <result column="xckl" jdbcType="DECIMAL" property="xckl" />
+    <result column="jz" jdbcType="DECIMAL" property="jz" />
+    <result column="cmsj" jdbcType="NVARCHAR" property="cmsj" />
+    <result column="cmqrmgryxm" jdbcType="NVARCHAR" property="cmqrmgryxm" />
+    <result column="rkjsdh" jdbcType="NVARCHAR" property="rkjsdh" />
+    <result column="bz" jdbcType="NVARCHAR" property="bz" />
+    <result column="czbz" jdbcType="NVARCHAR" property="czbz" />
+    <result column="zhgxsj" jdbcType="NVARCHAR" property="zhgxsj" />
+    <result column="batchid" jdbcType="NVARCHAR" property="batchid" />
+    <result column="s_kqdm" jdbcType="NVARCHAR" property="s_kqdm" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="checked" jdbcType="INTEGER" property="checked" />
+    <result column="uploadStatus" jdbcType="INTEGER" property="uploadStatus" />
+    <result column="lastUploadTime" jdbcType="TIMESTAMP" property="lastUploadTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    num, rkywdh, hwdm, ywlx, ywrq, jhmxh, hth, cyr, lxdh, sfzh, xxdz, ysgj, cch, djsj, 
+    djmgryxm, lspzdm, lsxzdm, shnd, cddm, jjlx, mz, mzjby, mzjlsj, mzjly, zcy, pz, pzjby, 
+    pzjlsj, pzjly, bzw, bzbdbz, bzbjs, zjkl, bzwkl, qtkl, klyy, ksz, kzs, xckl, jz, cmsj, 
+    cmqrmgryxm, rkjsdh, bz, czbz, zhgxsj, batchid, s_kqdm, updatetime, createtime, checked,
+    uploadStatus, lastUploadTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gb_1201
+    where num = #{num,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from gb_1201
+    where num = #{num,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.js.aisino.repository.entity.Gb1201">
+    <selectKey keyProperty="num" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into gb_1201 (rkywdh, hwdm, ywlx, 
+      ywrq, jhmxh, hth, 
+      cyr, lxdh, sfzh, 
+      xxdz, ysgj, cch, 
+      djsj, djmgryxm, lspzdm, 
+      lsxzdm, shnd, cddm, 
+      jjlx, mz, mzjby, 
+      mzjlsj, mzjly, zcy, 
+      pz, pzjby, pzjlsj, 
+      pzjly, bzw, bzbdbz, 
+      bzbjs, zjkl, bzwkl, 
+      qtkl, klyy, ksz, kzs, 
+      xckl, jz, cmsj, cmqrmgryxm, 
+      rkjsdh, bz, czbz, 
+      zhgxsj, batchid, s_kqdm, 
+      updatetime, createtime, checked,
+      uploadStatus, lastUploadTime)
+    values (#{rkywdh,jdbcType=NVARCHAR}, #{hwdm,jdbcType=NVARCHAR}, #{ywlx,jdbcType=NVARCHAR}, 
+      #{ywrq,jdbcType=NVARCHAR}, #{jhmxh,jdbcType=NVARCHAR}, #{hth,jdbcType=NVARCHAR}, 
+      #{cyr,jdbcType=NVARCHAR}, #{lxdh,jdbcType=NVARCHAR}, #{sfzh,jdbcType=NVARCHAR}, 
+      #{xxdz,jdbcType=NVARCHAR}, #{ysgj,jdbcType=NVARCHAR}, #{cch,jdbcType=NVARCHAR}, 
+      #{djsj,jdbcType=NVARCHAR}, #{djmgryxm,jdbcType=NVARCHAR}, #{lspzdm,jdbcType=NVARCHAR}, 
+      #{lsxzdm,jdbcType=NVARCHAR}, #{shnd,jdbcType=NVARCHAR}, #{cddm,jdbcType=NVARCHAR}, 
+      #{jjlx,jdbcType=NVARCHAR}, #{mz,jdbcType=DECIMAL}, #{mzjby,jdbcType=NVARCHAR}, 
+      #{mzjlsj,jdbcType=NVARCHAR}, #{mzjly,jdbcType=NVARCHAR}, #{zcy,jdbcType=NVARCHAR}, 
+      #{pz,jdbcType=DECIMAL}, #{pzjby,jdbcType=NVARCHAR}, #{pzjlsj,jdbcType=NVARCHAR}, 
+      #{pzjly,jdbcType=NVARCHAR}, #{bzw,jdbcType=NVARCHAR}, #{bzbdbz,jdbcType=DECIMAL}, 
+      #{bzbjs,jdbcType=INTEGER}, #{zjkl,jdbcType=DECIMAL}, #{bzwkl,jdbcType=DECIMAL}, 
+      #{qtkl,jdbcType=DECIMAL}, #{klyy,jdbcType=NVARCHAR}, #{ksz,jdbcType=DECIMAL}, #{kzs,jdbcType=DECIMAL}, 
+      #{xckl,jdbcType=DECIMAL}, #{jz,jdbcType=DECIMAL}, #{cmsj,jdbcType=NVARCHAR}, #{cmqrmgryxm,jdbcType=NVARCHAR}, 
+      #{rkjsdh,jdbcType=NVARCHAR}, #{bz,jdbcType=NVARCHAR}, #{czbz,jdbcType=NVARCHAR}, 
+      #{zhgxsj,jdbcType=NVARCHAR}, #{batchid,jdbcType=NVARCHAR}, #{s_kqdm,jdbcType=NVARCHAR}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, #{checked,jdbcType=INTEGER},
+      #{uploadStatus,jdbcType=INTEGER}, #{lastUploadTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.js.aisino.repository.entity.Gb1201">
+    <selectKey keyProperty="num" order="AFTER" resultType="java.lang.Integer">
+      SELECT SCOPE_IDENTITY()
+    </selectKey>
+    insert into gb_1201
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rkywdh != null">
+        rkywdh,
+      </if>
+      <if test="hwdm != null">
+        hwdm,
+      </if>
+      <if test="ywlx != null">
+        ywlx,
+      </if>
+      <if test="ywrq != null">
+        ywrq,
+      </if>
+      <if test="jhmxh != null">
+        jhmxh,
+      </if>
+      <if test="hth != null">
+        hth,
+      </if>
+      <if test="cyr != null">
+        cyr,
+      </if>
+      <if test="lxdh != null">
+        lxdh,
+      </if>
+      <if test="sfzh != null">
+        sfzh,
+      </if>
+      <if test="xxdz != null">
+        xxdz,
+      </if>
+      <if test="ysgj != null">
+        ysgj,
+      </if>
+      <if test="cch != null">
+        cch,
+      </if>
+      <if test="djsj != null">
+        djsj,
+      </if>
+      <if test="djmgryxm != null">
+        djmgryxm,
+      </if>
+      <if test="lspzdm != null">
+        lspzdm,
+      </if>
+      <if test="lsxzdm != null">
+        lsxzdm,
+      </if>
+      <if test="shnd != null">
+        shnd,
+      </if>
+      <if test="cddm != null">
+        cddm,
+      </if>
+      <if test="jjlx != null">
+        jjlx,
+      </if>
+      <if test="mz != null">
+        mz,
+      </if>
+      <if test="mzjby != null">
+        mzjby,
+      </if>
+      <if test="mzjlsj != null">
+        mzjlsj,
+      </if>
+      <if test="mzjly != null">
+        mzjly,
+      </if>
+      <if test="zcy != null">
+        zcy,
+      </if>
+      <if test="pz != null">
+        pz,
+      </if>
+      <if test="pzjby != null">
+        pzjby,
+      </if>
+      <if test="pzjlsj != null">
+        pzjlsj,
+      </if>
+      <if test="pzjly != null">
+        pzjly,
+      </if>
+      <if test="bzw != null">
+        bzw,
+      </if>
+      <if test="bzbdbz != null">
+        bzbdbz,
+      </if>
+      <if test="bzbjs != null">
+        bzbjs,
+      </if>
+      <if test="zjkl != null">
+        zjkl,
+      </if>
+      <if test="bzwkl != null">
+        bzwkl,
+      </if>
+      <if test="qtkl != null">
+        qtkl,
+      </if>
+      <if test="klyy != null">
+        klyy,
+      </if>
+      <if test="ksz != null">
+        ksz,
+      </if>
+      <if test="kzs != null">
+        kzs,
+      </if>
+      <if test="xckl != null">
+        xckl,
+      </if>
+      <if test="jz != null">
+        jz,
+      </if>
+      <if test="cmsj != null">
+        cmsj,
+      </if>
+      <if test="cmqrmgryxm != null">
+        cmqrmgryxm,
+      </if>
+      <if test="rkjsdh != null">
+        rkjsdh,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="czbz != null">
+        czbz,
+      </if>
+      <if test="zhgxsj != null">
+        zhgxsj,
+      </if>
+      <if test="batchid != null">
+        batchid,
+      </if>
+      <if test="s_kqdm != null">
+        s_kqdm,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="checked != null">
+        checked,
+      </if>
+      <if test="uploadStatus != null">
+        uploadStatus,
+      </if>
+      <if test="lastUploadTime != null">
+        lastUploadTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rkywdh != null">
+        #{rkywdh,jdbcType=NVARCHAR},
+      </if>
+      <if test="hwdm != null">
+        #{hwdm,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywlx != null">
+        #{ywlx,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywrq != null">
+        #{ywrq,jdbcType=NVARCHAR},
+      </if>
+      <if test="jhmxh != null">
+        #{jhmxh,jdbcType=NVARCHAR},
+      </if>
+      <if test="hth != null">
+        #{hth,jdbcType=NVARCHAR},
+      </if>
+      <if test="cyr != null">
+        #{cyr,jdbcType=NVARCHAR},
+      </if>
+      <if test="lxdh != null">
+        #{lxdh,jdbcType=NVARCHAR},
+      </if>
+      <if test="sfzh != null">
+        #{sfzh,jdbcType=NVARCHAR},
+      </if>
+      <if test="xxdz != null">
+        #{xxdz,jdbcType=NVARCHAR},
+      </if>
+      <if test="ysgj != null">
+        #{ysgj,jdbcType=NVARCHAR},
+      </if>
+      <if test="cch != null">
+        #{cch,jdbcType=NVARCHAR},
+      </if>
+      <if test="djsj != null">
+        #{djsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="djmgryxm != null">
+        #{djmgryxm,jdbcType=NVARCHAR},
+      </if>
+      <if test="lspzdm != null">
+        #{lspzdm,jdbcType=NVARCHAR},
+      </if>
+      <if test="lsxzdm != null">
+        #{lsxzdm,jdbcType=NVARCHAR},
+      </if>
+      <if test="shnd != null">
+        #{shnd,jdbcType=NVARCHAR},
+      </if>
+      <if test="cddm != null">
+        #{cddm,jdbcType=NVARCHAR},
+      </if>
+      <if test="jjlx != null">
+        #{jjlx,jdbcType=NVARCHAR},
+      </if>
+      <if test="mz != null">
+        #{mz,jdbcType=DECIMAL},
+      </if>
+      <if test="mzjby != null">
+        #{mzjby,jdbcType=NVARCHAR},
+      </if>
+      <if test="mzjlsj != null">
+        #{mzjlsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="mzjly != null">
+        #{mzjly,jdbcType=NVARCHAR},
+      </if>
+      <if test="zcy != null">
+        #{zcy,jdbcType=NVARCHAR},
+      </if>
+      <if test="pz != null">
+        #{pz,jdbcType=DECIMAL},
+      </if>
+      <if test="pzjby != null">
+        #{pzjby,jdbcType=NVARCHAR},
+      </if>
+      <if test="pzjlsj != null">
+        #{pzjlsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="pzjly != null">
+        #{pzjly,jdbcType=NVARCHAR},
+      </if>
+      <if test="bzw != null">
+        #{bzw,jdbcType=NVARCHAR},
+      </if>
+      <if test="bzbdbz != null">
+        #{bzbdbz,jdbcType=DECIMAL},
+      </if>
+      <if test="bzbjs != null">
+        #{bzbjs,jdbcType=INTEGER},
+      </if>
+      <if test="zjkl != null">
+        #{zjkl,jdbcType=DECIMAL},
+      </if>
+      <if test="bzwkl != null">
+        #{bzwkl,jdbcType=DECIMAL},
+      </if>
+      <if test="qtkl != null">
+        #{qtkl,jdbcType=DECIMAL},
+      </if>
+      <if test="klyy != null">
+        #{klyy,jdbcType=NVARCHAR},
+      </if>
+      <if test="ksz != null">
+        #{ksz,jdbcType=DECIMAL},
+      </if>
+      <if test="kzs != null">
+        #{kzs,jdbcType=DECIMAL},
+      </if>
+      <if test="xckl != null">
+        #{xckl,jdbcType=DECIMAL},
+      </if>
+      <if test="jz != null">
+        #{jz,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsj != null">
+        #{cmsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="cmqrmgryxm != null">
+        #{cmqrmgryxm,jdbcType=NVARCHAR},
+      </if>
+      <if test="rkjsdh != null">
+        #{rkjsdh,jdbcType=NVARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=NVARCHAR},
+      </if>
+      <if test="czbz != null">
+        #{czbz,jdbcType=NVARCHAR},
+      </if>
+      <if test="zhgxsj != null">
+        #{zhgxsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="batchid != null">
+        #{batchid,jdbcType=NVARCHAR},
+      </if>
+      <if test="s_kqdm != null">
+        #{s_kqdm,jdbcType=NVARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checked != null">
+        #{checked,jdbcType=INTEGER},
+      </if>
+      <if test="uploadStatus != null">
+        #{uploadStatus,jdbcType=INTEGER},
+      </if>
+      <if test="lastUploadTime != null">
+        #{lastUploadTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.js.aisino.repository.entity.Gb1201">
+    update gb_1201
+    <set>
+      <if test="rkywdh != null">
+        rkywdh = #{rkywdh,jdbcType=NVARCHAR},
+      </if>
+      <if test="hwdm != null">
+        hwdm = #{hwdm,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywlx != null">
+        ywlx = #{ywlx,jdbcType=NVARCHAR},
+      </if>
+      <if test="ywrq != null">
+        ywrq = #{ywrq,jdbcType=NVARCHAR},
+      </if>
+      <if test="jhmxh != null">
+        jhmxh = #{jhmxh,jdbcType=NVARCHAR},
+      </if>
+      <if test="hth != null">
+        hth = #{hth,jdbcType=NVARCHAR},
+      </if>
+      <if test="cyr != null">
+        cyr = #{cyr,jdbcType=NVARCHAR},
+      </if>
+      <if test="lxdh != null">
+        lxdh = #{lxdh,jdbcType=NVARCHAR},
+      </if>
+      <if test="sfzh != null">
+        sfzh = #{sfzh,jdbcType=NVARCHAR},
+      </if>
+      <if test="xxdz != null">
+        xxdz = #{xxdz,jdbcType=NVARCHAR},
+      </if>
+      <if test="ysgj != null">
+        ysgj = #{ysgj,jdbcType=NVARCHAR},
+      </if>
+      <if test="cch != null">
+        cch = #{cch,jdbcType=NVARCHAR},
+      </if>
+      <if test="djsj != null">
+        djsj = #{djsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="djmgryxm != null">
+        djmgryxm = #{djmgryxm,jdbcType=NVARCHAR},
+      </if>
+      <if test="lspzdm != null">
+        lspzdm = #{lspzdm,jdbcType=NVARCHAR},
+      </if>
+      <if test="lsxzdm != null">
+        lsxzdm = #{lsxzdm,jdbcType=NVARCHAR},
+      </if>
+      <if test="shnd != null">
+        shnd = #{shnd,jdbcType=NVARCHAR},
+      </if>
+      <if test="cddm != null">
+        cddm = #{cddm,jdbcType=NVARCHAR},
+      </if>
+      <if test="jjlx != null">
+        jjlx = #{jjlx,jdbcType=NVARCHAR},
+      </if>
+      <if test="mz != null">
+        mz = #{mz,jdbcType=DECIMAL},
+      </if>
+      <if test="mzjby != null">
+        mzjby = #{mzjby,jdbcType=NVARCHAR},
+      </if>
+      <if test="mzjlsj != null">
+        mzjlsj = #{mzjlsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="mzjly != null">
+        mzjly = #{mzjly,jdbcType=NVARCHAR},
+      </if>
+      <if test="zcy != null">
+        zcy = #{zcy,jdbcType=NVARCHAR},
+      </if>
+      <if test="pz != null">
+        pz = #{pz,jdbcType=DECIMAL},
+      </if>
+      <if test="pzjby != null">
+        pzjby = #{pzjby,jdbcType=NVARCHAR},
+      </if>
+      <if test="pzjlsj != null">
+        pzjlsj = #{pzjlsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="pzjly != null">
+        pzjly = #{pzjly,jdbcType=NVARCHAR},
+      </if>
+      <if test="bzw != null">
+        bzw = #{bzw,jdbcType=NVARCHAR},
+      </if>
+      <if test="bzbdbz != null">
+        bzbdbz = #{bzbdbz,jdbcType=DECIMAL},
+      </if>
+      <if test="bzbjs != null">
+        bzbjs = #{bzbjs,jdbcType=INTEGER},
+      </if>
+      <if test="zjkl != null">
+        zjkl = #{zjkl,jdbcType=DECIMAL},
+      </if>
+      <if test="bzwkl != null">
+        bzwkl = #{bzwkl,jdbcType=DECIMAL},
+      </if>
+      <if test="qtkl != null">
+        qtkl = #{qtkl,jdbcType=DECIMAL},
+      </if>
+      <if test="klyy != null">
+        klyy = #{klyy,jdbcType=NVARCHAR},
+      </if>
+      <if test="ksz != null">
+        ksz = #{ksz,jdbcType=DECIMAL},
+      </if>
+      <if test="kzs != null">
+        kzs = #{kzs,jdbcType=DECIMAL},
+      </if>
+      <if test="xckl != null">
+        xckl = #{xckl,jdbcType=DECIMAL},
+      </if>
+      <if test="jz != null">
+        jz = #{jz,jdbcType=DECIMAL},
+      </if>
+      <if test="cmsj != null">
+        cmsj = #{cmsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="cmqrmgryxm != null">
+        cmqrmgryxm = #{cmqrmgryxm,jdbcType=NVARCHAR},
+      </if>
+      <if test="rkjsdh != null">
+        rkjsdh = #{rkjsdh,jdbcType=NVARCHAR},
+      </if>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=NVARCHAR},
+      </if>
+      <if test="czbz != null">
+        czbz = #{czbz,jdbcType=NVARCHAR},
+      </if>
+      <if test="zhgxsj != null">
+        zhgxsj = #{zhgxsj,jdbcType=NVARCHAR},
+      </if>
+      <if test="batchid != null">
+        batchid = #{batchid,jdbcType=NVARCHAR},
+      </if>
+      <if test="s_kqdm != null">
+        s_kqdm = #{s_kqdm,jdbcType=NVARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checked != null">
+        checked = #{checked,jdbcType=INTEGER},
+      </if>
+      <if test="uploadStatus != null">
+        uploadStatus = #{uploadStatus,jdbcType=INTEGER},
+      </if>
+      <if test="lastUploadTime != null">
+        lastUploadTime = #{lastUploadTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where num = #{num,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.js.aisino.repository.entity.Gb1201">
+    update gb_1201
+    set rkywdh = #{rkywdh,jdbcType=NVARCHAR},
+      hwdm = #{hwdm,jdbcType=NVARCHAR},
+      ywlx = #{ywlx,jdbcType=NVARCHAR},
+      ywrq = #{ywrq,jdbcType=NVARCHAR},
+      jhmxh = #{jhmxh,jdbcType=NVARCHAR},
+      hth = #{hth,jdbcType=NVARCHAR},
+      cyr = #{cyr,jdbcType=NVARCHAR},
+      lxdh = #{lxdh,jdbcType=NVARCHAR},
+      sfzh = #{sfzh,jdbcType=NVARCHAR},
+      xxdz = #{xxdz,jdbcType=NVARCHAR},
+      ysgj = #{ysgj,jdbcType=NVARCHAR},
+      cch = #{cch,jdbcType=NVARCHAR},
+      djsj = #{djsj,jdbcType=NVARCHAR},
+      djmgryxm = #{djmgryxm,jdbcType=NVARCHAR},
+      lspzdm = #{lspzdm,jdbcType=NVARCHAR},
+      lsxzdm = #{lsxzdm,jdbcType=NVARCHAR},
+      shnd = #{shnd,jdbcType=NVARCHAR},
+      cddm = #{cddm,jdbcType=NVARCHAR},
+      jjlx = #{jjlx,jdbcType=NVARCHAR},
+      mz = #{mz,jdbcType=DECIMAL},
+      mzjby = #{mzjby,jdbcType=NVARCHAR},
+      mzjlsj = #{mzjlsj,jdbcType=NVARCHAR},
+      mzjly = #{mzjly,jdbcType=NVARCHAR},
+      zcy = #{zcy,jdbcType=NVARCHAR},
+      pz = #{pz,jdbcType=DECIMAL},
+      pzjby = #{pzjby,jdbcType=NVARCHAR},
+      pzjlsj = #{pzjlsj,jdbcType=NVARCHAR},
+      pzjly = #{pzjly,jdbcType=NVARCHAR},
+      bzw = #{bzw,jdbcType=NVARCHAR},
+      bzbdbz = #{bzbdbz,jdbcType=DECIMAL},
+      bzbjs = #{bzbjs,jdbcType=INTEGER},
+      zjkl = #{zjkl,jdbcType=DECIMAL},
+      bzwkl = #{bzwkl,jdbcType=DECIMAL},
+      qtkl = #{qtkl,jdbcType=DECIMAL},
+      klyy = #{klyy,jdbcType=NVARCHAR},
+      ksz = #{ksz,jdbcType=DECIMAL},
+      kzs = #{kzs,jdbcType=DECIMAL},
+      xckl = #{xckl,jdbcType=DECIMAL},
+      jz = #{jz,jdbcType=DECIMAL},
+      cmsj = #{cmsj,jdbcType=NVARCHAR},
+      cmqrmgryxm = #{cmqrmgryxm,jdbcType=NVARCHAR},
+      rkjsdh = #{rkjsdh,jdbcType=NVARCHAR},
+      bz = #{bz,jdbcType=NVARCHAR},
+      czbz = #{czbz,jdbcType=NVARCHAR},
+      zhgxsj = #{zhgxsj,jdbcType=NVARCHAR},
+      batchid = #{batchid,jdbcType=NVARCHAR},
+      s_kqdm = #{s_kqdm,jdbcType=NVARCHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      checked = #{checked,jdbcType=INTEGER},
+      uploadStatus = #{uploadStatus,jdbcType=INTEGER},
+      lastUploadTime = #{lastUploadTime,jdbcType=TIMESTAMP}
+    where num = #{num,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultType="com.js.aisino.repository.entity.Gb1201">
+    select * from gb_1201 where checked=1 and (uploadStatus=0 OR uploadStatus IS NULL)
+  </select>
+
+
+</mapper>
